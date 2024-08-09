@@ -1,0 +1,31 @@
+<div class="h-full w-full flex justify-center">
+  <div class="flex flex-col">
+    <ng-template #loading>
+      <div class="w-full flex items-center justify-center">
+        <mat-spinner></mat-spinner>
+      </div>
+    </ng-template>
+
+    <!--  <ng-container *ngIf="Questions; else loading">
+      <div class="h-full w-full flex justify-center">
+        <h1>Your Score</h1>
+      </div>
+    </ng-container> -->
+    <div class="w-full flex flex-col justify-center my-[20px] items-center">
+      <h1 class="text-3xl text-gray-500">Your Score</h1>
+      <h1 class="text-2xl text-blue-600">{{ result?.score }}</h1>
+      <a
+        [routerLink]="['']"
+        routerLinkActive="router-link-active"
+        class="no-underline"
+      >
+        <button
+          mat-raised-button
+          class="bg-gray-200 text-blue-600 py-3 px-4 border rounded-lg hover:border-2 border-gray-400"
+        >
+          go back to homepage
+        </button>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="flex flex-col">
+  <span
+    class="flex justify-center font-bold text-2xl bg-blue-200 items-center p-4"
+  >
+    {{ questionsData.name }}
+  </span>
+
+  <div
+    class="w-[800px] border px-10 border-gray-300 bg-white rounded-lg shadow md:mt-2 sm:w-md xl:p-4"
+  >
+    <div class="flex">
+      <span class="flex justify-between ml-4">
+        <h2 style="margin-top: 16px">
+          {{ questionsData.questions_list[currentQuestion]?.question }}
+        </h2>
+      </span>
+      <span class="flex-1"> </span>
+      <span class="flex justify-center items-center">
+        <div
+          class="flex justify-center w-[120px] border-2 rounded-full border-red-600 p-2"
+        >
+          {{ this.getFormattedTime() }}
+        </div>
+      </span>
+    </div>
+
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="example-radio-group"
+      [(ngModel)]="submitted_answers[currentQuestion]"
+    >
+      @for (option of questionsData.questions_list[currentQuestion]?.options;
+      track $index) {
+      <mat-radio-button class="example-radio-button" [value]="$index + 1">{{
+        option
+      }}</mat-radio-button>
+      }
+    </mat-radio-group>
+    <div class="flex">
+      <span class="ml-3 text-gray-500">
+        <h3>
+          Question {{ currentQuestion + 1 }} of
+          {{ questionsData.questions_list.length }}
+        </h3>
+      </span>
+      <span class="flex-1"></span>
+      <span>
+        <button
+          class="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 disabled:bg-gray-400"
+          (click)="nextQuestion()"
+          [disabled]="isNextDiasabled"
+        >
+          Next
+        </button>
+      </span>
+    </div>
+  </div>
+  <span class="flex justify-end font-bold items-center p-4">
+    <button
+      class="border-2 rounded-full w-[100px] p-3 bg-green-700 hover:bg-green-600 text-white disabled:bg-gray-400"
+      [disabled]="isSubmitDiasabled"
+      (click)="submitExam()"
+    >
+      Submit
+    </button>
+  </span>
+</div>
