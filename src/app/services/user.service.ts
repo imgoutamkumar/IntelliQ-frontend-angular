@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  baseUrl = 'http://localhost:3000';
-
+  baseUrl = 'https://intelliq-backend-node.onrender.com';
+  // baseUrl = 'https://intelliq-backend-node.onrender.com';
   register(signUpFormData: any): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/auth/register`, signUpFormData);
   }

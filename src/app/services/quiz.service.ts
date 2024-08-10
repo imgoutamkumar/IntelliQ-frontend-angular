@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class QuizService {
   constructor(private http: HttpClient) {}
 
-  baseUrl = 'http://localhost:3000';
+  baseUrl = 'https://intelliq-backend-node.onrender.com';
 
   getAllPublishedQuiz(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/quiz/allPublishedQuiz`);

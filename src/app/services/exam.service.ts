@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class ExamService {
   constructor(private http: HttpClient, private cookie: CookieService) {}
 
-  baseUrl = 'http://localhost:3000';
+  baseUrl = 'https://intelliq-backend-node.onrender.com';
 
   //using localstorage
   /* headers = new HttpHeaders().set(
